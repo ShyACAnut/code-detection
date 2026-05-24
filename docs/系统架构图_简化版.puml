@@ -1,0 +1,39 @@
+@startuml
+skinparam backgroundColor #FEFEFE
+skinparam handwritten false
+skinparam defaultFontSize 11
+
+stateDiagram-v2
+    [*] --> Global
+    
+    state Global <<cloud>> #BBDEFB
+    Global : 代码文本
+    Global : 函数结构
+    Global : 相似度分数
+    Global : 判定理由
+    Global : 行号标注
+    
+    state Parser #C8E6C9
+    Parser : 提取函数结构
+    Parser : 分析执行逻辑
+    Parser : 识别算法流程
+    
+    state Judge #FFECB3
+    Judge : 加载GLM-4.5-air
+    Judge : 执行Prompt模板
+    Judge : 生成相似度分数
+    
+    state Explainer #E1BEE7
+    Explainer : 整理判定数据
+    Explainer : 生成自然语言理由
+    Explainer : 标注相似代码行号
+    
+    Global --> Parser : 输入代码
+    Parser --> Global : 特征数据
+    Global --> Judge : 特征+代码
+    Judge --> Global : 相似度分数
+    Global --> Explainer : 判定结果
+    Explainer --> Global : 解释文本
+    
+    note bottom of Global: 节点间通过全局状态字典实现数据流转
+@enduml
