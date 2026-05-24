@@ -1,0 +1,150 @@
+java
+codea：
+public class CalcDemo {
+    // 两数求和方法
+    public static int calculateAdd(int a, int b) {
+        return a + b;
+    }
+
+    public static void main(String[] args) {
+        int first = 35;
+        int second = 65;
+        int sumRes = calculateAdd(first, second);
+        System.out.println("两数相加结果：" + sumRes);
+
+        // 简单for循环遍历
+        for (int i = 1; i <= 4; i++) {
+            System.out.println("当前循环轮次：" + i);
+        }
+    }
+}
+codeb：
+public class CalcTest {
+    // 整数相加运算
+    public static int getSum(int m, int n) {
+        int total = m + n;
+        return total;
+    }
+
+    public static void main(String[] args) {
+        int numOne = 35;
+        int numTwo = 65;
+        int result = getSum(numOne, numTwo);
+        System.out.println("数值相加总和：" + result);
+
+        // 循环打印序号
+        for (int k = 1; k <= 4; k++) {
+            System.out.println("当前遍历序号：" + k);
+        }
+    }
+}
+c代码：
+codea：
+#include <stdio.h>
+
+int main() {
+    int a = 12;
+    int b = 28;
+    int ans = a + b;
+    printf("sum = %d\n", ans);
+    return 0;
+}
+codeb：
+#include <stdio.h>
+
+void showInfo()
+{
+    double x = 3.14;
+    double y = 2.71;
+    double res = x * y;
+    printf("mul result: %.2f", res);
+}
+
+int main()
+{
+    showInfo();
+    return 0;
+}
+c++：
+a：
+#include <iostream>
+using namespace std;
+
+int add(int x, int y)
+{
+    return x + y;
+}
+
+int main()
+{
+    cout << add(10, 20) << endl;
+    return 0;
+}
+b：
+#include <iostream>
+#include <string>
+using namespace std;
+
+string getMsg(string s)
+{
+    return "text: " + s;
+}
+
+int main()
+{
+    string str = "hello";
+    cout << getMsg(str);
+    return 0;
+}
+c#：
+a：using System;
+
+class Program
+{
+    static int Calc(int a, int b)
+    {
+        return a - b;
+    }
+
+    static void Main()
+    {
+        Console.WriteLine(Calc(90, 30));
+    }
+}
+b：
+using System;
+
+class CodeDemo
+{
+    static void PrintNum(int n)
+    {
+        for (int i = 0; i < n; i++)
+        {
+            Console.Write(i + " ");
+        }
+    }
+
+    static void Main()
+    {
+        PrintNum(5);
+    }
+}
+js：
+a：
+function countTotal(m, n) {
+    let total = m + n;
+    return total;
+}
+
+let num1 = 66;
+let num2 = 34;
+console.log(countTotal(num1, num2));
+b：
+function getResult(a, b) {
+    let res = a + b;
+    return res;
+}
+
+let val1 = 66;
+let val2 = 34;
+console.log(getResult(val1, val2));
