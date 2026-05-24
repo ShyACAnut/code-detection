@@ -1,0 +1,329 @@
+:root {
+  --linear-ease: linear(
+    0,
+    0.068,
+    0.19 2.7%,
+    0.804 8.1%,
+    1.037,
+    1.199 13.2%,
+    1.245,
+    1.27 15.8%,
+    1.274,
+    1.272 17.4%,
+    1.249 19.1%,
+    0.996 28%,
+    0.949,
+    0.928 33.3%,
+    0.926,
+    0.933 36.8%,
+    1.001 45.6%,
+    1.013,
+    1.019 50.8%,
+    1.018 54.4%,
+    1 63.1%,
+    0.995 68%,
+    1.001 85%,
+    1
+  );
+
+  --color-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --color-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  --color-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  --color-4: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+}
+
+.gooey-glass-nav-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gooey-glass-horizontal nav ul {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5em;
+}
+
+.gooey-glass-vertical nav ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+.gooey-glass-nav-container nav {
+  display: flex;
+  position: relative;
+  transform: translate3d(0, 0, 0.01px);
+}
+
+.gooey-glass-nav-container nav ul {
+  list-style: none;
+  padding: 0.5em;
+  margin: 0;
+  position: relative;
+  z-index: 3;
+  display: flex;
+}
+
+.gooey-glass-nav-container nav ul li {
+  border-radius: 100vw;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 0.5px 1.5px transparent;
+}
+
+.gooey-glass-nav-container nav ul li a,
+.gooey-glass-nav-container nav ul li button {
+  display: flex;
+  align-items: center;
+  gap: 0.6em;
+  padding: 0.75em 1.25em;
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.7);
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 100vw;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+  font-weight: 500;
+  font-size: 0.95em;
+}
+
+.gooey-glass-nav-container nav ul li button {
+  cursor: pointer;
+  outline: none;
+}
+
+.gooey-glass-nav-container nav ul li:hover a,
+.gooey-glass-nav-container nav ul li:hover button {
+  background: rgba(255, 255, 255, 0.25);
+  color: rgba(0, 0, 0, 0.85);
+}
+
+.gooey-glass-nav-container nav ul li:focus-within:has(:focus-visible) {
+  box-shadow: 0 0 0.5px 1.5px rgba(102, 126, 234, 0.5);
+}
+
+.gooey-glass-nav-container nav ul li.active a,
+.gooey-glass-nav-container nav ul li.active button {
+  background: rgba(255, 255, 255, 0.95);
+  color: #1a1a2e;
+  box-shadow: 
+    0 4px 20px rgba(102, 126, 234, 0.3),
+    0 0 0 1px rgba(255, 255, 255, 0.5) inset;
+}
+
+.nav-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1em;
+}
+
+.nav-icon svg {
+  width: 1.1em;
+  height: 1.1em;
+}
+
+.nav-label {
+  white-space: nowrap;
+}
+
+.gooey-glass-nav-container .effect {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 0;
+  opacity: 0.8;
+  pointer-events: none;
+  display: grid;
+  place-items: center;
+  z-index: 1;
+  border-radius: 100vw;
+}
+
+.gooey-glass-nav-container .effect.text {
+  color: rgba(0, 0, 0, 0.7);
+  font-weight: 500;
+  font-size: 0.95em;
+  display: flex;
+  align-items: center;
+  gap: 0.6em;
+  padding: 0.75em 1.25em;
+  transition: all 0.3s ease;
+}
+
+.gooey-glass-nav-container .effect.text.active {
+  color: #1a1a2e;
+}
+
+.gooey-glass-nav-container .effect.filter {
+  filter: blur(10px) contrast(150) blur(0);
+  mix-blend-mode: screen;
+}
+
+.gooey-glass-nav-container .effect.filter::before {
+  content: '';
+  position: absolute;
+  inset: -60px;
+  z-index: -2;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.4), rgba(118, 75, 162, 0.4));
+  border-radius: 50%;
+}
+
+.gooey-glass-nav-container .effect.filter::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7));
+  transform: scale(0);
+  opacity: 0;
+  z-index: -1;
+  border-radius: 100vw;
+}
+
+.gooey-glass-nav-container .effect.active::after {
+  animation: glassPill 0.3s ease both;
+}
+
+@keyframes glassPill {
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.particle,
+.point {
+  display: block;
+  opacity: 0;
+  width: 16px;
+  height: 16px;
+  border-radius: 100%;
+  transform-origin: center;
+}
+
+.particle {
+  --time: 5s;
+  position: absolute;
+  top: calc(50% - 8px);
+  left: calc(50% - 8px);
+  animation: glassParticle calc(var(--time)) ease 1 -350ms;
+}
+
+.point {
+  background: var(--color);
+  opacity: 0.85;
+  animation: glassPoint calc(var(--time)) ease 1 -350ms;
+}
+
+@keyframes glassParticle {
+  0% {
+    transform: rotate(0deg) translate(calc(var(--start-x)), calc(var(--start-y)));
+    opacity: 0.9;
+    animation-timing-function: cubic-bezier(0.55, 0, 1, 0.45);
+  }
+
+  70% {
+    transform: rotate(calc(var(--rotate) * 0.5)) translate(calc(var(--end-x) * 1.2), calc(var(--end-y) * 1.2));
+    opacity: 0.8;
+    animation-timing-function: ease;
+  }
+
+  85% {
+    transform: rotate(calc(var(--rotate) * 0.66)) translate(calc(var(--end-x)), calc(var(--end-y)));
+    opacity: 0.6;
+  }
+
+  100% {
+    transform: rotate(calc(var(--rotate) * 1.2)) translate(calc(var(--end-x) * 0.5), calc(var(--end-y) * 0.5));
+    opacity: 0;
+  }
+}
+
+@keyframes glassPoint {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+    animation-timing-function: cubic-bezier(0.55, 0, 1, 0.45);
+  }
+
+  25% {
+    transform: scale(calc(var(--scale) * 0.3));
+  }
+
+  38% {
+    opacity: 0.9;
+  }
+
+  65% {
+    transform: scale(var(--scale));
+    opacity: 0.8;
+    animation-timing-function: ease;
+  }
+
+  85% {
+    transform: scale(var(--scale));
+    opacity: 0.6;
+  }
+
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+
+.gooey-glass-vertical nav ul li a,
+.gooey-glass-vertical nav ul li button {
+  flex-direction: column;
+  gap: 0.3em;
+  padding: 1em 1.25em;
+  min-width: 60px;
+}
+
+.gooey-glass-vertical .nav-label {
+  font-size: 0.75em;
+}
+
+.gooey-glass-vertical .effect.text {
+  flex-direction: column;
+  gap: 0.3em;
+}
+
+.dark-theme .gooey-glass-nav-container nav ul li a,
+.dark-theme .gooey-glass-nav-container nav ul li button {
+  background: rgba(30, 30, 50, 0.4);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.dark-theme .gooey-glass-nav-container nav ul li:hover a,
+.dark-theme .gooey-glass-nav-container nav ul li:hover button {
+  background: rgba(30, 30, 50, 0.6);
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.dark-theme .gooey-glass-nav-container nav ul li.active a,
+.dark-theme .gooey-glass-nav-container nav ul li.active button {
+  background: rgba(102, 126, 234, 0.3);
+  color: #fff;
+  box-shadow: 
+    0 4px 20px rgba(102, 126, 234, 0.4),
+    0 0 0 1px rgba(255, 255, 255, 0.15) inset;
+}
+
+.dark-theme .gooey-glass-nav-container .effect.text {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.dark-theme .gooey-glass-nav-container .effect.text.active {
+  color: #fff;
+}
+
+.dark-theme .gooey-glass-nav-container .effect.filter::after {
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.6), rgba(118, 75, 162, 0.6));
+}
