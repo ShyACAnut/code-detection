@@ -1,0 +1,51 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0">
+  <diagram id="fig4-4" name="图4.4 代码标准化流程图">
+    <mxGraphModel dx="64402" dy="36664" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="800" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;" value="图4.4 代码标准化流程图" vertex="1">
+          <mxGeometry height="30" width="300" x="250" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="G5INLDOghhwAxl7mPZSo-1" edge="1" parent="1" source="input" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="step1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="input" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#2E7D32;strokeWidth=2;fontStyle=1;fontSize=13;" value="原始代码输入" vertex="1">
+          <mxGeometry height="45" width="200" x="275" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="G5INLDOghhwAxl7mPZSo-2" edge="1" parent="1" source="step1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="step2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="step1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F4FD;strokeColor=#2C5F8A;strokeWidth=2;fontStyle=1;fontSize=12;" value="注释移除&#xa;（// 和 /* */）" vertex="1">
+          <mxGeometry height="55" width="200" x="275" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="G5INLDOghhwAxl7mPZSo-3" edge="1" parent="1" source="step2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="step3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="step2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F4FD;strokeColor=#2C5F8A;strokeWidth=2;fontStyle=1;fontSize=12;" value="标识符归一化&#xa;（变量名→var_i, 函数名→func_i）" vertex="1">
+          <mxGeometry height="55" width="200" x="275" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="G5INLDOghhwAxl7mPZSo-4" edge="1" parent="1" source="step3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="step4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="step3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F4FD;strokeColor=#2C5F8A;strokeWidth=2;fontStyle=1;fontSize=12;" value="缩进统一&#xa;（统一为4个空格）" vertex="1">
+          <mxGeometry height="55" width="200" x="275" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="G5INLDOghhwAxl7mPZSo-5" edge="1" parent="1" source="step4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="output">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="step4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F4FD;strokeColor=#2C5F8A;strokeWidth=2;fontStyle=1;fontSize=12;" value="空白字符清理&#xa;（删除空行和多余空格）" vertex="1">
+          <mxGeometry height="55" width="200" x="275" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="output" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#2E7D32;strokeWidth=2;fontStyle=1;fontSize=13;" value="标准化代码输出" vertex="1">
+          <mxGeometry height="45" width="200" x="275" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="arr1" edge="1" parent="1" source="input" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#333333;strokeWidth=2;endArrow=block;endFill=1;" target="step1" />
+        <mxCell id="arr2" edge="1" parent="1" source="step1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#333333;strokeWidth=2;endArrow=block;endFill=1;" target="step2" />
+        <mxCell id="arr3" edge="1" parent="1" source="step2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#333333;strokeWidth=2;endArrow=block;endFill=1;" target="step3" />
+        <mxCell id="arr4" edge="1" parent="1" source="step3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#333333;strokeWidth=2;endArrow=block;endFill=1;" target="step4" />
+        <mxCell id="arr5" edge="1" parent="1" source="step4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#333333;strokeWidth=2;endArrow=block;endFill=1;" target="output" />
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
