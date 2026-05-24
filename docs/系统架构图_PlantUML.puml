@@ -1,0 +1,287 @@
+@startuml AiCode 代码相似度检测系统架构图
+!theme plain
+
+title AiCode 代码相似度检测系统 - 总体架构设计
+
+' ==================== 用户层 ====================
+package "用户层 (Users)" {
+    actor 学生 #Student
+    actor 教师 #Teacher
+    actor 管理员 #Admin
+    actor 教学主任 #Dean
+}
+
+' ==================== 前端层 ====================
+package "前端层 (React + TypeScript)" {
+
+    package "学生端页面" {
+        [StudentDashboard] as SD
+        [Assignments] as SA
+        [Submissions] as SS
+        [EthicsLearning] as SEL
+        [Notifications] as SN
+        [Statistics] as SStat
+    }
+
+    package "教师端页面" {
+        [TeacherDashboard] as TD
+        [AssignmentManagement] as TAM
+        [StudentManagement] as TSM
+        [Notifications] as TN
+        [SimilarityAnalysis] as TSA
+    }
+
+    package "管理员端页面" {
+        [Dashboard] as AD
+        [SystemSettings] as ASS
+        [CodeLibrary] as ACL
+        [AuditLogs] as AAL
+    }
+
+    package "通用组件" {
+        [Layout] as Layout
+        [Menu] as Menu
+        [Alert] as Alert
+    }
+}
+
+' ==================== API 网关层 ====================
+package "API 网关层 (FastAPI)" {
+
+    package "认证模块" {
+        [登录 /auth/token]
+        [获取用户信息 /auth/me]
+        [角色权限检查]
+    }
+
+    package "学生相关路由" {
+        [作业列表 /assignments/]
+        [提交代码 /submissions/]
+        [学习进度 /ethics-cases/learning/progress]
+        [完成学习 /ethics-cases/{id}/complete]
+    }
+
+    package "教师相关路由" {
+        [作业管理 /assignments/]
+        [学生管理 /students/]
+        [发送通知 /notifications/]
+        [代码分析 /analysis-tasks/]
+        [相似度报告 /reports/]
+    }
+
+    package "管理员相关路由" {
+        [用户管理 /admin/users]
+        [系统配置 /admin/config]
+        [代码库管理 /admin/code-library]
+        [审计日志 /audit-logs/]
+    }
+}
+
+' ==================== 业务逻辑层 ====================
+package "业务逻辑层 (Services)" {
+
+    package "代码分析服务" {
+        [代码相似度分析]
+        [AST 语法树分析]
+        [语义向量分析]
+        [LLM 伦理分析]
+    }
+
+    package "伦理学习服务" {
+        [触发学习要求]
+        [检查学习完成]
+        [清除学习状态]
+        [重置学习进度]
+    }
+
+    package "通知服务" {
+        [创建整改通知]
+        [发送通知]
+        [高风险预警]
+    }
+}
+
+' ==================== 数据访问层 ====================
+package "数据访问层 (SQLAlchemy ORM)" {
+    database "SQLite 数据库" as DB {
+
+        table "users" as Users {
+            id (PK)
+            username
+            email
+            hashed_password
+            role
+            requires_ethics_learning
+            required_cases_count
+            created_at
+        }
+
+        table "assignments" as Assignments {
+            id (PK)
+            title
+            description
+            created_by (FK)
+            deadline
+            created_at
+        }
+
+        table "submissions" as Submissions {
+            id (PK)
+            student_id (FK)
+            assignment_id (FK)
+            code_content
+            language
+            submitted_at
+        }
+
+        table "comparison_results" as Comparisons {
+            id (PK)
+            submission_id (FK)
+            compared_with_id (FK)
+            similarity_score
+            syntax_similarity
+            semantic_similarity
+            is_high_risk
+            analyzed_at
+        }
+
+        table "ethics_cases" as EthicsCases {
+            id (PK)
+            title
+            category
+            description
+            scenario
+            outcome
+            consequences
+            prevention
+            is_active
+            created_at
+        }
+
+        table "ethics_learning_records" as EthicsRecords {
+            id (PK)
+            student_id (FK)
+            case_id (FK)
+            is_completed
+            completed_at
+            created_at
+        }
+
+        table "notifications" as Notifications {
+            id (PK)
+            student_id (FK)
+            teacher_id (FK)
+            title
+            content
+            type
+            is_read
+            created_at
+        }
+
+        table "system_config" as SystemConfig {
+            id (PK)
+            similarity_threshold
+            llm_model_name
+            syntax_weight
+            semantic_weight
+            updated_at
+        }
+
+        table "audit_logs" as AuditLogs {
+            id (PK)
+            user_id (FK)
+            action
+            details
+            ip_address
+            created_at
+        }
+
+        table "code_library" as CodeLibrary {
+            id (PK)
+            filename
+            language
+            file_size
+            is_public
+            uploaded_at
+        }
+    }
+}
+
+' ==================== 关系连接 ====================
+Students -down-> SA
+Students -down-> SS
+Students -down-> SEL
+Students -down-> SN
+
+Teachers -down-> TAM
+Teachers -down-> TSM
+Teachers -down-> TN
+Teachers -down-> TSA
+
+Admins -down-> ASS
+Admins -down-> ACL
+Admins -down-> AAL
+
+' 前端调用后端 API
+SD ..> 作业列表 : /assignments/
+SS ..> 提交代码 : /submissions/
+SEL ..> 学习进度 : /ethics-cases/learning/progress
+TN ..> 发送通知 : /notifications/
+
+' 后端业务逻辑
+伦理学习服务 --> EthicsCases
+伦理学习服务 --> EthicsRecords
+通知服务 --> Notifications
+代码分析服务 --> Comparisons
+
+' 数据访问
+业务逻辑层 --> 数据访问层 : CRUD
+数据访问层 --> DB : 持久化
+
+' ==================== 系统流程 ====================
+note top of Students
+  **学生使用流程：**
+  1. 登录系统
+  2. 查看作业列表
+  3. 提交代码
+  4. 查看相似度分析结果
+  5. 如收到整改通知则进行伦理学习
+end note
+
+note top of Teachers
+  **教师使用流程：**
+  1. 登录系统
+  2. 创建/管理作业
+  3. 查看学生提交
+  4. 进行代码相似度分析
+  5. 发送整改通知
+end note
+
+note top of Admins
+  **管理员使用流程：**
+  1. 登录系统
+  2. 管理用户账户
+  3. 配置系统参数
+  4. 管理代码库
+  5. 查看审计日志
+end note
+
+' ==================== 触发机制 ====================
+note as TriggerNote
+  **伦理学习触发机制：**
+
+  触发条件（二选一）：
+  ├── 代码相似度 ≥ 80% (高风险)
+  └── 教师发送整改通知
+
+  学习流程：
+  1. 触发学习要求
+  2. 重置学习记录
+  3. 学生完成3个案例
+  4. 清除警告状态
+end note
+
+TriggerNote .. 代码分析服务
+TriggerNote .. 通知服务
+
+@enduml
