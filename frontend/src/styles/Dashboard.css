@@ -1,0 +1,336 @@
+/* ======================
+   基础样式
+====================== */
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #f3f6f9;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* ======================
+   全局滚动条样式
+====================== */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  transition: background 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+/* Firefox 滚动条 */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.2) rgba(0, 0, 0, 0.05);
+}
+
+/* ======================
+   全屏容器
+====================== */
+.dashboard-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ======================
+   玻璃头部（核心）
+====================== */
+.glass-header-light {
+  height: 60px;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  flex-shrink: 0;
+  position: relative;
+  z-index: 100;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+.header-left {
+  display: flex;
+  flex-direction: column;
+  font-size: 15px;
+  color: #333;
+  font-weight: 500;
+}
+
+.header-left-full {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: #333;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.header-left-full .header-brand {
+  font-weight: 700;
+  font-size: 18px;
+  background: linear-gradient(135deg, #7c3aed 0%, #4f46e5 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.header-left-full .header-dot {
+  margin: 0 4px;
+  color: #6b7280;
+}
+
+.header-left-full .header-role {
+  font-weight: 500;
+  color: #374151;
+}
+
+.header-left-full .header-divider {
+  margin: 0 12px;
+  color: #d1d5db;
+}
+
+.header-left-full .header-tech {
+  color: #6b7280;
+  font-size: 13px;
+}
+
+.header-left .brand {
+  background: linear-gradient(135deg, #0284c7 0%, #4f46e5 50%, #7c3aed 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.header-left .brand-dot {
+  color: #94a3b8;
+  margin: 0 6px;
+}
+
+.header-left .brand-role {
+  color: #334155;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.header-left .tech-stack {
+  font-size: 11px;
+  color: #94a3b8;
+  font-weight: 400;
+  margin-top: 2px;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  height: 100%;
+}
+
+.user-info {
+  font-size: 14px;
+  color: #333;
+  padding: 6px 14px;
+  background: rgba(59, 130, 246, 0.1);
+  border-radius: 20px;
+  font-weight: 500;
+}
+
+/* 无背景色的用户信息 */
+.user-info-no-bg {
+  font-size: 14px;
+  color: #333;
+  padding: 6px 14px;
+  font-weight: 500;
+}
+
+.logout-btn {
+  padding: 8px 18px;
+  border-radius: 8px;
+  border: none;
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  color: white;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(239, 68, 68, 0.3);
+}
+
+.logout-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);
+}
+
+/* 黑色字体的退出按钮 */
+.logout-btn-dark {
+  padding: 8px 18px;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  background: rgba(255, 255, 255, 0.6);
+  color: #333;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.logout-btn-dark:hover {
+  background: rgba(255, 255, 255, 0.8);
+  border-color: #cbd5e1;
+}
+
+.logout-btn-dark:active {
+  transform: scale(0.96);
+  background: rgba(255, 255, 255, 0.5);
+}
+
+/* ======================
+   主体布局（紧贴Header）
+====================== */
+.dashboard-inner-light {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+  height: calc(100vh - 60px);
+}
+
+/* ======================
+   玻璃侧边栏
+====================== */
+.glass-sidebar-light {
+  width: 230px;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 24px 16px;
+  border-right: 1px solid rgba(255, 255, 255, 0.4);
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-menu {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 15px;
+}
+
+.sidebar-menu li {
+  padding: 12px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #475569;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sidebar-menu li:hover {
+  background: rgba(0, 0, 0, 0.05);
+  color: #1e293b;
+}
+
+.sidebar-menu li.active {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+  color: #3b82f6;
+  font-weight: 500;
+}
+
+.sidebar-menu li.active::before {
+  content: '';
+  width: 4px;
+  height: 4px;
+  background: #3b82f6;
+  border-radius: 50%;
+}
+
+/* ======================
+   内容区（与Header齐平 ✅）
+====================== */
+.content-area {
+  flex: 1;
+  padding: 0 24px 24px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: rgba(248, 250, 252, 0.5);
+  min-height: 0;
+  height: calc(100vh - 60px);
+  -webkit-overflow-scrolling: touch;
+  position: relative;
+  z-index: 1;
+}
+
+.content-card {
+  background: white;
+  padding: 24px;
+  border-radius: 0 14px 14px 14px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+}
+
+.content-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.content-card-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+/* ======================
+   响应式设计
+====================== */
+@media (max-width: 768px) {
+  .glass-sidebar-light {
+    width: 60px;
+    padding: 24px 8px;
+  }
+  
+  .sidebar-menu li span {
+    display: none;
+  }
+  
+  .header-left {
+    font-size: 12px;
+  }
+  
+  .user-info {
+    display: none;
+  }
+}
