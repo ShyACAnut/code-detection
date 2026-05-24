@@ -1,0 +1,10 @@
+{
+  "total_files": 1005475,
+  "processed_files": 1005474,
+  "embedding_dim": 100,
+  "vocab_size": 60,
+  "model_type": "simple_keyword_model",
+  "build_time": "2026-04-24 09:17:53",
+  "processing_time_seconds": 47.90093016624451,
+  "started_from": 961999
+}
