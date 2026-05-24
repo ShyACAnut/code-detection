@@ -1,0 +1,92 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0">
+  <diagram id="fig4-5" name="图4.5 FAISS检索流程图">
+    <mxGraphModel dx="74336" dy="46527" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;" value="图4.5 FAISS检索流程图" vertex="1">
+          <mxGeometry height="30" width="300" x="450" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="left-title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1;fontColor=#2C5F8A;" value="索引构建阶段" vertex="1">
+          <mxGeometry height="30" width="150" x="100" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="91IcvfmNMNQPM9Am7Pvr-2" edge="1" parent="1" source="l1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="l2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F4FD;strokeColor=#2C5F8A;strokeWidth=2;fontStyle=1;" value="标准化代码库" vertex="1">
+          <mxGeometry height="50" width="150" x="75" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="91IcvfmNMNQPM9Am7Pvr-3" edge="1" parent="1" source="l2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="l3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3E5F5;strokeColor=#7B1FA2;strokeWidth=2;fontStyle=1;" value="all-MiniLM-L6-v2&#xa;向量化模型" vertex="1">
+          <mxGeometry height="50" width="150" x="75" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="91IcvfmNMNQPM9Am7Pvr-4" edge="1" parent="1" source="l3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="l4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F4FD;strokeColor=#2C5F8A;strokeWidth=2;fontStyle=1;" value="384维稠密向量" vertex="1">
+          <mxGeometry height="50" width="150" x="75" y="270" as="geometry" />
+        </mxCell>
+        <mxCell id="l4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F4FD;strokeColor=#2C5F8A;strokeWidth=2;fontStyle=1;" value="FAISS IVF_FLAT&#xa;索引构建&#xa;(nlist=100)" vertex="1">
+          <mxGeometry height="60" width="150" x="75" y="350" as="geometry" />
+        </mxCell>
+        <mxCell id="arr-l1" edge="1" parent="1" source="l1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#333333;strokeWidth=2;endArrow=block;endFill=1;" target="l2" />
+        <mxCell id="arr-l2" edge="1" parent="1" source="l2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#333333;strokeWidth=2;endArrow=block;endFill=1;" target="l3" />
+        <mxCell id="arr-l3" edge="1" parent="1" source="l3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#333333;strokeWidth=2;endArrow=block;endFill=1;" target="l4" />
+        <mxCell id="divider" parent="1" style="line;strokeWidth=2;direction=south;html=1;strokeColor=#CCCCCC;dashed=1;" value="" vertex="1">
+          <mxGeometry height="400" width="1" x="300" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="right-title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1;fontColor=#E65100;" value="检索匹配阶段" vertex="1">
+          <mxGeometry height="30" width="150" x="450" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="91IcvfmNMNQPM9Am7Pvr-5" edge="1" parent="1" source="r1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="r2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="r1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F4FD;strokeColor=#2C5F8A;strokeWidth=2;fontStyle=1;" value="查询代码" vertex="1">
+          <mxGeometry height="50" width="150" x="425" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="91IcvfmNMNQPM9Am7Pvr-8" edge="1" parent="1" source="r2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="r3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="r2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3E5F5;strokeColor=#7B1FA2;strokeWidth=2;fontStyle=1;" value="all-MiniLM-L6-v2&#xa;向量化" vertex="1">
+          <mxGeometry height="50" width="150" x="425" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="91IcvfmNMNQPM9Am7Pvr-9" edge="1" parent="1" source="r3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="r4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="r3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F4FD;strokeColor=#2C5F8A;strokeWidth=2;fontStyle=1;" value="查询向量" vertex="1">
+          <mxGeometry height="50" width="150" x="425" y="270" as="geometry" />
+        </mxCell>
+        <mxCell id="91IcvfmNMNQPM9Am7Pvr-10" edge="1" parent="1" source="r4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="decision">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="r4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F4FD;strokeColor=#2C5F8A;strokeWidth=2;fontStyle=1;" value="FAISS Top-K&#xa;近似最近邻检索" vertex="1">
+          <mxGeometry height="50" width="150" x="425" y="350" as="geometry" />
+        </mxCell>
+        <mxCell id="decision" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FFF3E0;strokeColor=#E65100;strokeWidth=2;fontStyle=1;" value="距离 &lt; θ_vec&#xa;(0.65)?" vertex="1">
+          <mxGeometry height="80" width="140" x="430" y="430" as="geometry" />
+        </mxCell>
+        <mxCell id="yes-result" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#2E7D32;strokeWidth=2;fontStyle=1;" value="候选相似&#xa;送入LLM判定" vertex="1">
+          <mxGeometry height="50" width="120" x="620" y="445" as="geometry" />
+        </mxCell>
+        <mxCell id="no-result" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF3E0;strokeColor=#E65100;strokeWidth=2;fontStyle=1;" value="判定为不相似&#xa;流程终止" vertex="1">
+          <mxGeometry height="50" width="120" x="440" y="540" as="geometry" />
+        </mxCell>
+        <mxCell id="arr-r1" edge="1" parent="1" source="r1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#333333;strokeWidth=2;endArrow=block;endFill=1;" target="r2" />
+        <mxCell id="arr-r2" edge="1" parent="1" source="r2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#333333;strokeWidth=2;endArrow=block;endFill=1;" target="r3" />
+        <mxCell id="arr-r3" edge="1" parent="1" source="r3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#333333;strokeWidth=2;endArrow=block;endFill=1;" target="r4" />
+        <mxCell id="arr-r4" edge="1" parent="1" source="r4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#333333;strokeWidth=2;endArrow=block;endFill=1;" target="decision" />
+        <mxCell id="arr-yes" edge="1" parent="1" source="decision" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#333333;strokeWidth=2;endArrow=block;endFill=1;fontStyle=1;" target="yes-result" value="是">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arr-no" edge="1" parent="1" source="decision" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#333333;strokeWidth=2;endArrow=block;endFill=1;fontStyle=1;" target="no-result" value="否">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arr-index" edge="1" parent="1" source="l4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#333333;strokeWidth=2;endArrow=block;endFill=1;fontStyle=1;" target="r4" value="索引">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
