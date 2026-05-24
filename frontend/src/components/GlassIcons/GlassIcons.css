@@ -1,0 +1,209 @@
+.icon-btns {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 3.5em;
+  width: 100%;
+  margin: 0;
+  padding: 2em 0;
+  overflow: visible;
+}
+
+.icon-btn {
+  background-color: transparent;
+  outline: none;
+  position: relative;
+  width: 4em;
+  height: 4em;
+  perspective: 24em;
+  transform-style: preserve-3d;
+  -webkit-tap-highlight-color: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.icon-btn__back,
+.icon-btn__front {
+  transition:
+    opacity 0.3s cubic-bezier(0.83, 0, 0.17, 1),
+    transform 0.3s cubic-bezier(0.83, 0, 0.17, 1);
+}
+
+.icon-btn__back,
+.icon-btn__front {
+  border-radius: 1em;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.icon-btn__back {
+  box-shadow: 0.4em -0.4em 0.6em hsla(223, 10%, 10%, 0.12);
+  display: block;
+  transform: rotate(12deg);
+  transform-origin: 100% 100%;
+  will-change: transform;
+}
+
+.icon-btn__front {
+  background-color: hsla(0, 0%, 100%, 0.25);
+  box-shadow: 0 0 0 0.1em hsla(0, 0%, 100%, 0.4) inset;
+  backdrop-filter: blur(0.75em);
+  -webkit-backdrop-filter: blur(0.75em);
+  -moz-backdrop-filter: blur(0.75em);
+  display: flex;
+  transform-origin: 80% 50%;
+  will-change: transform;
+}
+
+.icon-btn__icon {
+  margin: auto;
+  width: 1.8em;
+  height: 1.8em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 1.4em;
+}
+
+.icon-btn__icon svg {
+  width: 1.4em;
+  height: 1.4em;
+}
+
+.icon-btn__label {
+  font-size: 0.85em;
+  white-space: nowrap;
+  text-align: center;
+  line-height: 1.3;
+  opacity: 0;
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%) translateY(-4px);
+  color: rgba(0, 0, 0, 0.85);
+  font-weight: 600;
+  pointer-events: none;
+  letter-spacing: 0.3px;
+  z-index: 200;
+  padding: 2px 8px;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 6px;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.icon-btn:focus-visible .icon-btn__back,
+.icon-btn:hover .icon-btn__back,
+.icon-btn:active .icon-btn__back {
+  transform: rotate(20deg) translate3d(-0.3em, -0.3em, 0.3em);
+}
+
+.icon-btn:focus-visible .icon-btn__front,
+.icon-btn:hover .icon-btn__front,
+.icon-btn:active .icon-btn__front {
+  transform: translate3d(0, 0, 1.5em);
+}
+
+.icon-btn:focus-visible .icon-btn__label,
+.icon-btn:hover .icon-btn__label {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Active / selected state - 选中后恢复原样，仅改变图标颜色表示选中 */
+.icon-btn.active .icon-btn__back {
+  transform: rotate(12deg);
+  opacity: 1;
+}
+
+.icon-btn.active .icon-btn__front {
+  transform: none;
+  background-color: hsla(0, 0%, 100%, 0.25);
+  box-shadow: 0 0 0 0.1em hsla(0, 0%, 100%, 0.4) inset;
+}
+
+/* 选中时改变图标颜色 */
+.icon-btn.active .icon-btn__icon {
+  filter: brightness(1.1);
+}
+
+/* Sidebar static labels — always visible below icons */
+.sidebar-icons-wrapper .icon-btn {
+  height: auto;
+  min-height: 4em;
+  padding-bottom: 1.4em;
+}
+
+.sidebar-icons-wrapper .icon-btn__back,
+.sidebar-icons-wrapper .icon-btn__front {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 4em;
+  height: 4em;
+}
+
+.sidebar-icons-wrapper .icon-btn__back {
+  transform: translateX(-50%) rotate(12deg);
+}
+
+.sidebar-icons-wrapper .icon-btn__front {
+  transform: translateX(-50%);
+}
+
+/* 悬浮和点击时的3D效果 */
+.sidebar-icons-wrapper .icon-btn:hover .icon-btn__back,
+.sidebar-icons-wrapper .icon-btn:active .icon-btn__back,
+.sidebar-icons-wrapper .icon-btn:focus-visible .icon-btn__back {
+  transform: translateX(-50%) rotate(20deg) translate3d(-0.3em, -0.3em, 0.3em);
+}
+
+.sidebar-icons-wrapper .icon-btn:hover .icon-btn__front,
+.sidebar-icons-wrapper .icon-btn:active .icon-btn__front,
+.sidebar-icons-wrapper .icon-btn:focus-visible .icon-btn__front {
+  transform: translateX(-50%) translate3d(0, 0, 1.5em);
+}
+
+/* 选中状态恢复原样 */
+.sidebar-icons-wrapper .icon-btn.active .icon-btn__back {
+  transform: translateX(-50%) rotate(12deg);
+}
+
+.sidebar-icons-wrapper .icon-btn.active .icon-btn__front {
+  transform: translateX(-50%);
+}
+
+.sidebar-icons-wrapper .icon-btn__label {
+  opacity: 1 !important;
+  position: absolute;
+  top: calc(4em + 4px);
+  left: 50%;
+  transform: translateX(-50%) !important;
+  margin-top: 0;
+  font-size: 0.85em;
+  color: rgba(0, 0, 0, 0.55);
+  background: transparent;
+  backdrop-filter: none;
+  padding: 0;
+  text-shadow: none;
+  font-weight: 500;
+  box-shadow: none;
+  transition: color 0.2s ease;
+}
+
+.sidebar-icons-wrapper .icon-btn:hover .icon-btn__label,
+.sidebar-icons-wrapper .icon-btn.active .icon-btn__label {
+  color: rgba(0, 0, 0, 0.85);
+  font-weight: 600;
+}
