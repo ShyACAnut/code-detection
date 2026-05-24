@@ -1,0 +1,571 @@
+[
+  {
+    "case_name": "变量重命名 - 简单求和函数",
+    "language": "python",
+    "expected_outcome": "高相似度（语义等价，仅变量名不同）",
+    "syntax_score": 92.94,
+    "semantic_score": 91.67613220214844,
+    "syntax_result": {
+      "score": 92.94,
+      "matched_lines": [],
+      "token_overlap": 0.5294,
+      "ast_score": 100.0,
+      "layer": "ast_syntax"
+    },
+    "semantic_result": {
+      "score": 91.67613220214844,
+      "reason": "两段代码在逻辑流程、数据结构和关键算法上完全相同，都实现了计算数字列表总和的功能，仅变量名不同。 [向量相似度: 0.67 (检测到16个候选)]",
+      "raw": {
+        "similarity_analysis": {
+          "score": 91.67613220214844,
+          "reason": "两段代码在逻辑流程、数据结构和关键算法上完全相同，都实现了计算数字列表总和的功能，仅变量名不同。 [向量相似度: 0.67 (检测到16个候选)]",
+          "function_summary": "计算一个数字列表的总和。"
+        },
+        "metadata": {
+          "language": "python",
+          "ast_a_root_type": "module",
+          "ast_b_root_type": "module",
+          "structure_similarity": 1.0,
+          "vector_similarity": 0.6670451760292053,
+          "llm_score": 100,
+          "final_score": 91.67613220214844,
+          "filter_layer": "llm_analysis",
+          "agent_phase": "语义分析完成"
+        }
+      }
+    }
+  },
+  {
+    "case_name": "变量重命名 - 复杂类处理",
+    "language": "python",
+    "expected_outcome": "高相似度（语义等价，类名和变量名都被重命名）",
+    "syntax_score": 95.71,
+    "semantic_score": 91.6303482055664,
+    "syntax_result": {
+      "score": 95.71,
+      "matched_lines": [],
+      "token_overlap": 0.7143,
+      "ast_score": 100.0,
+      "layer": "ast_syntax"
+    },
+    "semantic_result": {
+      "score": 91.6303482055664,
+      "reason": "两段代码在功能、逻辑结构和算法上完全等价。它们都实现了缓存转换模式：初始化时接收输入列表，遍历列表元素，使用字典缓存存储已处理结果以避免重复计算，对每个元素应用相同的转换操作（乘以2），并返回处理后的列表。核心算法和流程无差异，仅变量名不同（被忽略）。 [向量相似度: 0.67 (检测到2个候选)]",
+      "raw": {
+        "similarity_analysis": {
+          "score": 91.6303482055664,
+          "reason": "两段代码在功能、逻辑结构和算法上完全等价。它们都实现了缓存转换模式：初始化时接收输入列表，遍历列表元素，使用字典缓存存储已处理结果以避免重复计算，对每个元素应用相同的转换操作（乘以2），并返回处理后的列表。核心算法和流程无差异，仅变量名不同（被忽略）。 [向量相似度: 0.67 (检测到2个候选)]",
+          "function_summary": "两个类都用于处理输入数据，通过缓存机制优化性能，对列表中的每个元素执行相同的转换（乘以2），并返回处理后的结果列表。"
+        },
+        "metadata": {
+          "language": "python",
+          "ast_a_root_type": "module",
+          "ast_b_root_type": "module",
+          "structure_similarity": 1.0,
+          "vector_similarity": 0.6652138233184814,
+          "llm_score": 100,
+          "final_score": 91.6303482055664,
+          "filter_layer": "llm_analysis",
+          "agent_phase": "语义分析完成"
+        }
+      }
+    }
+  },
+  {
+    "case_name": "循环转递归 - 阶乘计算",
+    "language": "python",
+    "expected_outcome": "高相似度（语义等价，实现方式不同但功能相同）",
+    "syntax_score": 65.7,
+    "semantic_score": 80.42613220214844,
+    "syntax_result": {
+      "score": 65.7,
+      "matched_lines": [],
+      "token_overlap": 0.4516,
+      "ast_score": 69.33,
+      "layer": "ast_syntax"
+    },
+    "semantic_result": {
+      "score": 80.42613220214844,
+      "reason": "两段代码都实现了阶乘计算功能，功能相同。算法意图相同，但实现方式不同：代码A使用迭代，代码B使用递归。逻辑结构上，A使用循环，B使用递归调用，导致执行路径不同。因此，相似度高但非完全等价。 [向量相似度: 0.67 (检测到16个候选)]",
+      "raw": {
+        "similarity_analysis": {
+          "score": 80.42613220214844,
+          "reason": "两段代码都实现了阶乘计算功能，功能相同。算法意图相同，但实现方式不同：代码A使用迭代，代码B使用递归。逻辑结构上，A使用循环，B使用递归调用，导致执行路径不同。因此，相似度高但非完全等价。 [向量相似度: 0.67 (检测到16个候选)]",
+          "function_summary": "两段代码都计算给定整数n的阶乘（n!）。"
+        },
+        "metadata": {
+          "language": "python",
+          "ast_a_root_type": "module",
+          "ast_b_root_type": "module",
+          "structure_similarity": 0.0,
+          "vector_similarity": 0.6670451760292053,
+          "llm_score": 85,
+          "final_score": 80.42613220214844,
+          "filter_layer": "llm_analysis",
+          "agent_phase": "语义分析完成"
+        }
+      }
+    }
+  },
+  {
+    "case_name": "循环转递归 - 斐波那契数列",
+    "language": "python",
+    "expected_outcome": "高相似度（语义等价，迭代 vs 递归实现）",
+    "syntax_score": 63.84,
+    "semantic_score": 80.62759399414062,
+    "syntax_result": {
+      "score": 63.84,
+      "matched_lines": [
+        "if n <= 1:",
+        "return n"
+      ],
+      "token_overlap": 0.5128,
+      "ast_score": 66.06,
+      "layer": "ast_syntax"
+    },
+    "semantic_result": {
+      "score": 80.62759399414062,
+      "reason": "两者都实现斐波那契数列计算，功能相同，但一个是迭代算法，一个是递归算法，逻辑流程有差异。 [向量相似度: 0.68 (检测到23个候选)]",
+      "raw": {
+        "similarity_analysis": {
+          "score": 80.62759399414062,
+          "reason": "两者都实现斐波那契数列计算，功能相同，但一个是迭代算法，一个是递归算法，逻辑流程有差异。 [向量相似度: 0.68 (检测到23个候选)]",
+          "function_summary": "计算斐波那契数列的第n项。"
+        },
+        "metadata": {
+          "language": "python",
+          "ast_a_root_type": "module",
+          "ast_b_root_type": "module",
+          "structure_similarity": 0.0,
+          "vector_similarity": 0.6751037836074829,
+          "llm_score": 85,
+          "final_score": 80.62759399414062,
+          "filter_layer": "llm_analysis",
+          "agent_phase": "语义分析完成"
+        }
+      }
+    }
+  },
+  {
+    "case_name": "算法等价 - 不同排序算法",
+    "language": "python",
+    "expected_outcome": "中等相似度（都是排序算法，但具体实现不同）",
+    "syntax_score": 88.24,
+    "semantic_score": 61.63433837890625,
+    "syntax_result": {
+      "score": 88.24,
+      "matched_lines": [
+        "for i in range(n):",
+        "n = len(arr)",
+        "return arr"
+      ],
+      "token_overlap": 0.8571,
+      "ast_score": 88.68,
+      "layer": "ast_syntax"
+    },
+    "semantic_result": {
+      "score": 61.63433837890625,
+      "reason": "两者都是排序算法，使用嵌套循环进行原地排序，但冒泡排序通过比较相邻元素并交换来排序，而选择排序通过选择最小元素并交换来排序。逻辑流程相似但关键算法不同。 [向量相似度: 0.67 (检测到1个候选)]",
+      "raw": {
+        "similarity_analysis": {
+          "score": 61.63433837890625,
+          "reason": "两者都是排序算法，使用嵌套循环进行原地排序，但冒泡排序通过比较相邻元素并交换来排序，而选择排序通过选择最小元素并交换来排序。逻辑流程相似但关键算法不同。 [向量相似度: 0.67 (检测到1个候选)]",
+          "function_summary": "两段代码都实现了数组排序功能，冒泡排序和选择排序都是基于比较的排序算法，时间复杂度均为O(n^2)。"
+        },
+        "metadata": {
+          "language": "python",
+          "ast_a_root_type": "module",
+          "ast_b_root_type": "module",
+          "structure_similarity": 0.0,
+          "vector_similarity": 0.6653734445571899,
+          "llm_score": 60,
+          "final_score": 61.63433837890625,
+          "filter_layer": "llm_analysis",
+          "agent_phase": "语义分析完成"
+        }
+      }
+    }
+  },
+  {
+    "case_name": "混淆对抗 - 插入无用代码",
+    "language": "python",
+    "expected_outcome": "应检测为高相似度（语义等价，无用代码不应影响结果）",
+    "syntax_score": 52.84,
+    "semantic_score": 91.81697082519531,
+    "syntax_result": {
+      "score": 52.84,
+      "matched_lines": [
+        "def calculate_average(numbers):",
+        "return total / len(numbers)",
+        "total = sum(numbers)"
+      ],
+      "token_overlap": 0.6429,
+      "ast_score": 50.82,
+      "layer": "ast_syntax"
+    },
+    "semantic_result": {
+      "score": 91.81697082519531,
+      "reason": "两段代码的核心功能都是计算数字列表的平均值，逻辑流程相同（计算总和后除以长度），关键算法相同（使用sum和len函数）。代码B中的无用代码不影响核心逻辑，因此逻辑完全等价。 [向量相似度: 0.67 (检测到16个候选)]",
+      "raw": {
+        "similarity_analysis": {
+          "score": 91.81697082519531,
+          "reason": "两段代码的核心功能都是计算数字列表的平均值，逻辑流程相同（计算总和后除以长度），关键算法相同（使用sum和len函数）。代码B中的无用代码不影响核心逻辑，因此逻辑完全等价。 [向量相似度: 0.67 (检测到16个候选)]",
+          "function_summary": "计算一个数字列表的平均值。"
+        },
+        "metadata": {
+          "language": "python",
+          "ast_a_root_type": "module",
+          "ast_b_root_type": "module",
+          "structure_similarity": 0.0,
+          "vector_similarity": 0.6726790070533752,
+          "llm_score": 100,
+          "final_score": 91.81697082519531,
+          "filter_layer": "llm_analysis",
+          "agent_phase": "语义分析完成"
+        }
+      }
+    }
+  },
+  {
+    "case_name": "混淆对抗 - 控制流平坦化",
+    "language": "python",
+    "expected_outcome": "应检测为高相似度（语义等价，控制流被混淆）",
+    "syntax_score": 50.98,
+    "semantic_score": 88.11994171142578,
+    "syntax_result": {
+      "score": 50.98,
+      "matched_lines": [
+        "def check_access(user, level):",
+        "else:",
+        "if user.is_admin:"
+      ],
+      "token_overlap": 0.5479,
+      "ast_score": 50.31,
+      "layer": "ast_syntax"
+    },
+    "semantic_result": {
+      "score": 88.11994171142578,
+      "reason": "两个函数都实现了相同的访问控制逻辑：如果用户是管理员或用户级别大于等于指定级别，则返回True，否则返回False。代码B使用了状态机和循环，逻辑上等价但实现更复杂。 [向量相似度: 0.67 (检测到23个候选)]",
+      "raw": {
+        "similarity_analysis": {
+          "score": 88.11994171142578,
+          "reason": "两个函数都实现了相同的访问控制逻辑：如果用户是管理员或用户级别大于等于指定级别，则返回True，否则返回False。代码B使用了状态机和循环，逻辑上等价但实现更复杂。 [向量相似度: 0.67 (检测到23个候选)]",
+          "function_summary": "检查用户是否有访问权限，基于管理员状态和用户级别。"
+        },
+        "metadata": {
+          "language": "python",
+          "ast_a_root_type": "module",
+          "ast_b_root_type": "module",
+          "structure_similarity": 0.0,
+          "vector_similarity": 0.6747975945472717,
+          "llm_score": 95,
+          "final_score": 88.11994171142578,
+          "filter_layer": "llm_analysis",
+          "agent_phase": "语义分析完成"
+        }
+      }
+    }
+  },
+  {
+    "case_name": "混淆对抗 - 字符串编码混淆",
+    "language": "python",
+    "expected_outcome": "应检测为高相似度（返回相同秘密值）",
+    "syntax_score": 48.78,
+    "semantic_score": 91.81697082519531,
+    "syntax_result": {
+      "score": 48.78,
+      "matched_lines": [
+        "def get_secret():"
+      ],
+      "token_overlap": 0.3704,
+      "ast_score": 50.85,
+      "layer": "ast_syntax"
+    },
+    "semantic_result": {
+      "score": 91.81697082519531,
+      "reason": "两者都返回相同的字符串'password123'，逻辑流程和数据结构相同，算法意图等价。 [向量相似度: 0.67 (检测到16个候选)]",
+      "raw": {
+        "similarity_analysis": {
+          "score": 91.81697082519531,
+          "reason": "两者都返回相同的字符串'password123'，逻辑流程和数据结构相同，算法意图等价。 [向量相似度: 0.67 (检测到16个候选)]",
+          "function_summary": "返回固定密码字符串'password123'的函数。"
+        },
+        "metadata": {
+          "language": "python",
+          "ast_a_root_type": "module",
+          "ast_b_root_type": "module",
+          "structure_similarity": 0.0,
+          "vector_similarity": 0.6726790070533752,
+          "llm_score": 100,
+          "final_score": 91.81697082519531,
+          "filter_layer": "llm_analysis",
+          "agent_phase": "语义分析完成"
+        }
+      }
+    }
+  },
+  {
+    "case_name": "混淆对抗 - 虚假控制流",
+    "language": "python",
+    "expected_outcome": "应检测为高相似度（语义等价，虚假分支不影响结果）",
+    "syntax_score": 55.03,
+    "semantic_score": 91.87759399414062,
+    "syntax_result": {
+      "score": 55.03,
+      "matched_lines": [
+        "def process_data(data):",
+        "if data is None:",
+        "return []"
+      ],
+      "token_overlap": 0.5938,
+      "ast_score": 54.26,
+      "layer": "ast_syntax"
+    },
+    "semantic_result": {
+      "score": 91.87759399414062,
+      "reason": "两段代码的核心逻辑完全相同：检查输入是否为None，如果是则返回空列表，否则返回输入列表中每个元素乘以2的新列表。代码B中的额外代码（虚假分支和死循环）不影响最终输出，因此逻辑等价。 [向量相似度: 0.68 (检测到23个候选)]",
+      "raw": {
+        "similarity_analysis": {
+          "score": 91.87759399414062,
+          "reason": "两段代码的核心逻辑完全相同：检查输入是否为None，如果是则返回空列表，否则返回输入列表中每个元素乘以2的新列表。代码B中的额外代码（虚假分支和死循环）不影响最终输出，因此逻辑等价。 [向量相似度: 0.68 (检测到23个候选)]",
+          "function_summary": "该函数处理输入数据：如果输入为None，返回空列表；否则，返回输入列表中每个元素乘以2的新列表。"
+        },
+        "metadata": {
+          "language": "python",
+          "ast_a_root_type": "module",
+          "ast_b_root_type": "module",
+          "structure_similarity": 0.0,
+          "vector_similarity": 0.6751037836074829,
+          "llm_score": 100,
+          "final_score": 91.87759399414062,
+          "filter_layer": "llm_analysis",
+          "agent_phase": "语义分析完成"
+        }
+      }
+    }
+  },
+  {
+    "case_name": "混淆对抗 - 数学等价变换",
+    "language": "python",
+    "expected_outcome": "应检测为高相似度（数学等价，位运算代替算术运算）",
+    "syntax_score": 63.06,
+    "semantic_score": 91.81697082519531,
+    "syntax_result": {
+      "score": 63.06,
+      "matched_lines": [
+        "def compute_value(a, b):"
+      ],
+      "token_overlap": 0.4828,
+      "ast_score": 65.67,
+      "layer": "ast_syntax"
+    },
+    "semantic_result": {
+      "score": 91.81697082519531,
+      "reason": "两段代码都计算a的两倍加上b的三倍，逻辑流程相同，算法意图相同，实现方式不同但数学等价。 [向量相似度: 0.67 (检测到16个候选)]",
+      "raw": {
+        "similarity_analysis": {
+          "score": 91.81697082519531,
+          "reason": "两段代码都计算a的两倍加上b的三倍，逻辑流程相同，算法意图相同，实现方式不同但数学等价。 [向量相似度: 0.67 (检测到16个候选)]",
+          "function_summary": "计算一个值，该值是输入参数a的两倍加上输入参数b的三倍。"
+        },
+        "metadata": {
+          "language": "python",
+          "ast_a_root_type": "module",
+          "ast_b_root_type": "module",
+          "structure_similarity": 0.0,
+          "vector_similarity": 0.6726790070533752,
+          "llm_score": 100,
+          "final_score": 91.81697082519531,
+          "filter_layer": "llm_analysis",
+          "agent_phase": "语义分析完成"
+        }
+      }
+    }
+  },
+  {
+    "case_name": "误报案例 - 标准算法实现（二分查找）",
+    "language": "python",
+    "expected_outcome": "【误报风险】高相似度但都是标准算法实现",
+    "syntax_score": 96.18,
+    "semantic_score": 91.87759399414062,
+    "syntax_result": {
+      "score": 96.18,
+      "matched_lines": [
+        "def binary_search(arr, target):",
+        "else:",
+        "return -1"
+      ],
+      "token_overlap": 0.7455,
+      "ast_score": 100.0,
+      "layer": "ast_syntax"
+    },
+    "semantic_result": {
+      "score": 91.87759399414062,
+      "reason": "两段代码在逻辑流程、数据结构和关键算法上完全相同，仅变量名不同（如left/low、right/high、mid/middle），但忽略表面差异后，功能等价。 [向量相似度: 0.68 (检测到23个候选)]",
+      "raw": {
+        "similarity_analysis": {
+          "score": 91.87759399414062,
+          "reason": "两段代码在逻辑流程、数据结构和关键算法上完全相同，仅变量名不同（如left/low、right/high、mid/middle），但忽略表面差异后，功能等价。 [向量相似度: 0.68 (检测到23个候选)]",
+          "function_summary": "实现二分搜索算法，在有序数组中查找目标值，返回索引或-1。"
+        },
+        "metadata": {
+          "language": "python",
+          "ast_a_root_type": "module",
+          "ast_b_root_type": "module",
+          "structure_similarity": 1.0,
+          "vector_similarity": 0.6751037836074829,
+          "llm_score": 100,
+          "final_score": 91.87759399414062,
+          "filter_layer": "llm_analysis",
+          "agent_phase": "语义分析完成"
+        }
+      }
+    }
+  },
+  {
+    "case_name": "误报案例 - 常见文件读取模式",
+    "language": "python",
+    "expected_outcome": "【误报风险】高相似度但都是常见代码模式",
+    "syntax_score": 96.47,
+    "semantic_score": 91.81697082519531,
+    "syntax_result": {
+      "score": 96.47,
+      "matched_lines": [],
+      "token_overlap": 0.7647,
+      "ast_score": 100.0,
+      "layer": "ast_syntax"
+    },
+    "semantic_result": {
+      "score": 91.81697082519531,
+      "reason": "两段代码在功能、逻辑结构和算法意图上完全相同，都是读取文件内容并返回字符串，仅函数名和变量名不同，但忽略表面差异后逻辑等价。 [向量相似度: 0.67 (检测到16个候选)]",
+      "raw": {
+        "similarity_analysis": {
+          "score": 91.81697082519531,
+          "reason": "两段代码在功能、逻辑结构和算法意图上完全相同，都是读取文件内容并返回字符串，仅函数名和变量名不同，但忽略表面差异后逻辑等价。 [向量相似度: 0.67 (检测到16个候选)]",
+          "function_summary": "两段代码的核心功能都是读取指定文件的内容并返回字符串。"
+        },
+        "metadata": {
+          "language": "python",
+          "ast_a_root_type": "module",
+          "ast_b_root_type": "module",
+          "structure_similarity": 1.0,
+          "vector_similarity": 0.6726790070533752,
+          "llm_score": 100,
+          "final_score": 91.81697082519531,
+          "filter_layer": "llm_analysis",
+          "agent_phase": "语义分析完成"
+        }
+      }
+    }
+  },
+  {
+    "case_name": "漏报案例 - 功能相同但实现方式差异大",
+    "language": "python",
+    "expected_outcome": "【漏报风险】语法相似度可能较低但语义等价",
+    "syntax_score": 62.82,
+    "semantic_score": 100.0,
+    "syntax_result": {
+      "score": 62.82,
+      "matched_lines": [],
+      "token_overlap": 0.4103,
+      "ast_score": 66.67,
+      "layer": "ast_syntax"
+    },
+    "semantic_result": {
+      "score": 100.0,
+      "reason": "两段代码在功能、逻辑结构和算法意图上完全等价：都通过遍历输入列表，检查元素是否为偶数（使用模运算），并返回只包含偶数的新列表。实现方式不同（显式循环 vs. filter函数），但核心逻辑和数据结构一致。 [向量相似度: 0.00]",
+      "raw": {
+        "similarity_analysis": {
+          "score": 100,
+          "reason": "两段代码在功能、逻辑结构和算法意图上完全等价：都通过遍历输入列表，检查元素是否为偶数（使用模运算），并返回只包含偶数的新列表。实现方式不同（显式循环 vs. filter函数），但核心逻辑和数据结构一致。 [向量相似度: 0.00]",
+          "function_summary": "过滤输入列表中的所有偶数。"
+        },
+        "metadata": {
+          "language": "python",
+          "ast_a_root_type": "module",
+          "ast_b_root_type": "module",
+          "structure_similarity": 0.0,
+          "vector_similarity": 0.0,
+          "llm_score": 100,
+          "final_score": 100,
+          "filter_layer": "llm_analysis",
+          "agent_phase": "语义分析完成"
+        }
+      }
+    }
+  },
+  {
+    "case_name": "漏报案例 - 使用库函数 vs 手写实现",
+    "language": "python",
+    "expected_outcome": "【漏报风险】语法差异大但语义等价",
+    "syntax_score": 66.88,
+    "semantic_score": 80.42613220214844,
+    "syntax_result": {
+      "score": 66.88,
+      "matched_lines": [],
+      "token_overlap": 0.4242,
+      "ast_score": 71.19,
+      "layer": "ast_syntax"
+    },
+    "semantic_result": {
+      "score": 80.42613220214844,
+      "reason": "两者都计算输入数据的平均值，但代码A使用NumPy的mean函数，可能在空输入时返回NaN或错误，而代码B显式返回0。此外，代码A可能支持多维数组，而代码B假设一维输入。核心算法意图相同，但实现细节和错误处理有差异。 [向量相似度: 0.67 (检测到17个候选)]",
+      "raw": {
+        "similarity_analysis": {
+          "score": 80.42613220214844,
+          "reason": "两者都计算输入数据的平均值，但代码A使用NumPy的mean函数，可能在空输入时返回NaN或错误，而代码B显式返回0。此外，代码A可能支持多维数组，而代码B假设一维输入。核心算法意图相同，但实现细节和错误处理有差异。 [向量相似度: 0.67 (检测到17个候选)]",
+          "function_summary": "两段代码都实现了计算输入数据平均值的功能，但代码A依赖NumPy库，代码B使用纯Python内置函数，且代码B处理了空输入的情况。"
+        },
+        "metadata": {
+          "language": "python",
+          "ast_a_root_type": "module",
+          "ast_b_root_type": "module",
+          "structure_similarity": 0.0,
+          "vector_similarity": 0.6670451760292053,
+          "llm_score": 85,
+          "final_score": 80.42613220214844,
+          "filter_layer": "llm_analysis",
+          "agent_phase": "语义分析完成"
+        }
+      }
+    }
+  },
+  {
+    "case_name": "边界案例 - 空函数",
+    "language": "python",
+    "expected_outcome": "边界情况：极简代码的相似度判断",
+    "syntax_score": 97.0,
+    "semantic_score": 91.81697082519531,
+    "syntax_result": {
+      "score": 97.0,
+      "matched_lines": [
+        "pass"
+      ],
+      "token_overlap": 0.8,
+      "ast_score": 100.0,
+      "layer": "ast_syntax"
+    },
+    "semantic_result": {
+      "score": 91.81697082519531,
+      "reason": "两个函数都执行相同的空操作，逻辑结构完全相同，没有算法差异。 [向量相似度: 0.67 (检测到2个候选)]",
+      "raw": {
+        "similarity_analysis": {
+          "score": 91.81697082519531,
+          "reason": "两个函数都执行相同的空操作，逻辑结构完全相同，没有算法差异。 [向量相似度: 0.67 (检测到2个候选)]",
+          "function_summary": "两个函数都实现了一个无操作的功能，即什么都不做。"
+        },
+        "metadata": {
+          "language": "python",
+          "ast_a_root_type": "module",
+          "ast_b_root_type": "module",
+          "structure_similarity": 1.0,
+          "vector_similarity": 0.6726790070533752,
+          "llm_score": 100,
+          "final_score": 91.81697082519531,
+          "filter_layer": "llm_analysis",
+          "agent_phase": "语义分析完成"
+        }
+      }
+    }
+  }
+]
